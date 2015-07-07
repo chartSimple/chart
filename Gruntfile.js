@@ -20,39 +20,6 @@ module.exports = function(grunt) {
 					changeOrigin: true
 				}
 			],
-			mc: {
-				options: {
-					port:9000,
-					middleware: function (connect) {
-						 return [
-							require('grunt-connect-proxy/lib/utils').proxyRequest,
-							connect.static('tu/branches/1.0.8/mc')
-						 ];
-					 }
-				 }
-			},
-			admin: {
-				options: {
-					port:8000,
-					middleware: function (connect) {
-						 return [
-							require('grunt-connect-proxy/lib/utils').proxyRequest,
-							connect.static('mc-web')
-						 ];
-					 }
-				 }
-			},
-			admin107: {
-				options: {
-					port:1208,
-					middleware: function (connect) {
-						 return [
-							require('grunt-connect-proxy/lib/utils').proxyRequest,
-							connect.static('tu/branches/1.0.7/')
-						 ];
-					 }
-				 }
-			},
 			d3: {
 				options: {
 					port:7000,
@@ -80,27 +47,6 @@ module.exports = function(grunt) {
 			//'connect:server',
 			'configureProxies',
 			'connect:d3'
-		]	
-	);
-	grunt.registerTask('admin',
-		[
-			//'connect:server',
-			'configureProxies',
-			'connect:admin'
-		]	
-	);
-	grunt.registerTask('test',
-		[
-			//'connect:server',
-			'configureProxies',
-			'connect:test'
-		]	
-	);
-	grunt.registerTask('admin107',
-		[
-			//'connect:server',
-			'configureProxies',
-			'connect:admin107'
 		]	
 	);
 
