@@ -30,6 +30,17 @@ module.exports = function(grunt) {
 						 ];
 					 }
 				 }
+			},
+			bdp: {
+				options: {
+					port:8888,
+					middleware: function (connect) {
+						 return [
+							require('grunt-connect-proxy/lib/utils').proxyRequest,
+							connect.static('bdp-m')
+						 ];
+					 }
+				 }
 			}
 	  	}
 	 });
@@ -47,6 +58,13 @@ module.exports = function(grunt) {
 			//'connect:server',
 			'configureProxies',
 			'connect:d3'
+		]	
+	);
+	grunt.registerTask('bdp',
+		[
+			//'connect:server',
+			'configureProxies',
+			'connect:bdp'
 		]	
 	);
 
