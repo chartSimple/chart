@@ -1,0 +1,21 @@
+<div class="login">
+	<div class="logo">
+		<img src="/img/bdp.png" alt="bdp">
+	</div>
+	<div class="login-form">
+		<form name="loginForm">
+			<div class="row">
+				<input type="text" required ng-model="loginData.domain" placeholder="企业域">
+			</div>
+			<div class="row">
+				<input type="text" required ng-model="loginData.username" placeholder="用户名">
+			</div>
+			<div class="row">
+				<input type="password" required ng-model="loginData.password" placeholder="密码">
+			</div>
+			<div class="row">
+				<input type="submit" value="登录" class="cursor-pointer" ng-click="login($event)">
+			</div>
+		</form>
+	</div>
+</div>

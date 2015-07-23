@@ -6,14 +6,14 @@ module.exports = function(grunt) {
 	  grunt.initConfig({
 		connect: {
 			options: {
-				hostname:'127.0.0.1',
+				hostname:'0.0.0.0',
 				keepalive:true,
-				open:true
+				open:false
 			},
 			proxies: [
 				{
 					context: '/api',
-					host: '123.126.105.20',
+					host: '123.126.105.47',
 					port: 9987,
 				//	host:'123.126.105.45',
 			//		port:29987,
