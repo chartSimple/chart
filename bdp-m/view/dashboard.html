@@ -1,0 +1,15 @@
+<div class="container dashboard">
+	<div class="header">
+		<p>{{dashboardData.projName}}</p>
+		<ul class="nav">
+			<li class="cursor-pointer" ng-repeat="it in dashboardData.dash">{{it.name}}</li>
+		</ul>
+	</div>
+	<div>
+		<ul class="charts-list pd5">
+			<li ng-repeat="it in dashboardData.charts" class="mt16 cursor-pointer">
+				<div class="chart-name pl8" ng-click="changePath('chart',it.children[0].meta.ct_id)">{{it.children[0].meta.name}}</div>
+			</li>
+		</ul>
+	</div>
+</div>

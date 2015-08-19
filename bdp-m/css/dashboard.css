@@ -1,0 +1,21 @@
+.dashboard .header{
+	width: 100%;
+	line-height: 32px;
+    height: 64px;
+    color:#fff;
+    text-align: center;
+    background: #7ABCE9;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1), 0 2px 1px 0 rgba(0, 0, 0, .08);
+}
+.dashboard .nav{
+	text-align: left;
+}
+.dashboard .nav li{
+	display: inline-block;
+	max-width: 120px;
+	padding: 0 16px;
+}
+
+.charts-list li > div{
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1), 0 2px 1px 0 rgba(0, 0, 0, .08);
+}

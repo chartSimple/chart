@@ -13,8 +13,16 @@ module.exports = function(grunt) {
 			proxies: [
 				{
 					context: '/api',
-					host: '123.126.105.47',
-					port: 9987,
+					/*
+					host: 'master.huangzj.dev.bdp.cn',
+					port: 80,
+					https: false,
+					headers: {"host":"master.huangzj.dev.bdp.cn"},
+					*/
+					host: 'www.bdp.cn',
+					port: 443,
+					https: true,
+					headers: {"host":"www.bdp.cn"},
 				//	host:'123.126.105.45',
 			//		port:29987,
 					changeOrigin: true

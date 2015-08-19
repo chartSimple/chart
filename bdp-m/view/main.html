@@ -1,0 +1,15 @@
+<div class="container main">
+	<div class="header">
+		BDP
+	</div>
+	<div class="bd pd8">
+		<h5>我的BDP</h5>
+		<ul class="proj-list">
+			<li ng-repeat="it in mainData.list track by $index" class="mt8">
+				<p class="name br2 pl16 cursor-pointer" ng-click="getDashList(it)">
+					{{it.name}}
+				</p>
+			</li>
+		</ul>
+	</div>
+</div>

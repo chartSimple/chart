@@ -2,9 +2,9 @@
 		angular.module('BDP.controllers.login',[])
 		.controller('loginCtrl',loginCtrl);
 
-		loginCtrl.$inject = ['$scope','Hint','Ajax'];
+		loginCtrl.$inject = ['$scope','Hint','httpService','$location'];
 
-		function loginCtrl($scope,Hint,Ajax){
+		function loginCtrl($scope,Hint,httpService,$location){
 
 			$scope.loginData = {};
 			$scope.loginView = {};
@@ -15,17 +15,16 @@
 			$scope.login = function(event){
 				event.preventDefault();
 
-				Ajax.login({
+				httpService.login({
 					domain:loginData.domain,
 					username:loginData.username,
 					password:loginData.password
 				}).then(function(data){
-					if(data.status){
-						
+					if(data.status == 0){
+						$location.path('/main');
 					}
 				})
 
 			}
 		}
-
 })()

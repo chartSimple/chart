@@ -5,7 +5,7 @@
 angular.module('BDP.services',[])
 	.factory('Hint',hintService) //错误提示信息
 	.service('commonHttp',commonHttpService)//commonHttp.get  commonHttp.post
-    .service('Ajax',ajaxService);
+    .service('httpService',httpService);
 
 
 
@@ -101,15 +101,35 @@ angular.module('BDP.services',[])
 /*--commonHttp - end--*/
 
 
-/*--ajaxService--start--*/
-    ajaxService.$inject = ['commonHttp'];
+/*--httpService--start--*/
+    httpService.$inject = ['commonHttp'];
 
-    function ajaxService(commonHttp){
+    function httpService(commonHttp){
+        var project = {
+            tree:function(){
+                return commonHttp.get('/api/project/tree');
+            }
+        },
+        dash = {
+            info:function(param){
+                return commonHttp.get('/api/dashboard/info',param);
+            }
+        },
+        chart = {
+            data:function(param){
+                return commonHttp.get('/api/chart/data',param);
+            }
+        };
 
-        return{
+        var o = {
+            project:project,
             login:function(param){
                 return commonHttp.get('/api/user/login',param);
-            }
+            },
+            dash:dash,
+            chart:chart
         }
+
+        return o;
     }
-/*--ajaxService--end--*/
+/*--httpService--end--*/

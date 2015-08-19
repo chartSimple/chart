@@ -1,7 +1,11 @@
 var bdpApp = angular.module('BDP',[
-	'ui.router',
-	'BDP.controllers.login',
-	'BDP.services'
+    'ui.router',
+    'BDP.services',
+    'BDP.directives',
+    'BDP.controllers.login',
+    'BDP.controllers.main',
+    'BDP.controllers.dashboard',
+    'BDP.controllers.chart'
 ]);
 
 bdpApp.run(['$rootScope','$location',function($rootScope,$location){
@@ -22,16 +26,34 @@ bdpApp.run(['$rootScope','$location',function($rootScope,$location){
             $rootScope.pageLoading = false;
         }
     );
+
+    $rootScope.changePath = function(path,id){
+        $location.path('/'+path+'/'+ id);
+    }
 }])
 
 
 
-
 bdpApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise('/login');
+	$urlRouterProvider.otherwise('/main');
 	$stateProvider.state('login',{
 		url:'/login',
 		templateUrl:'view/login.html',
 		controller:'loginCtrl'
 	})
+    .state('main',{
+        url:'/main',
+        templateUrl:'view/main.html',
+        controller:'mainCtrl'
+    })
+    .state('dashboard',{
+        url:'/dashboard',
+        templateUrl:'view/dashboard.html',
+        controller:'dashboardCtrl'
+    })
+    .state('chart/:id',{
+        url:'/chart/:id',
+        templateUrl:'view/chart.html',
+        controller:'chartCtrl'
+    })
 }])
