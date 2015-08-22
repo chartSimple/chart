@@ -15,15 +15,25 @@
     		this.WIDTH = $(elem).width();
     		this.HEIGHT = $(elem).height();
     		this.chartType = chartType;
-    		this.charttype = bdpChart.config.chart[this.chartType];
-    		this.draw(data);
+    		this.type = bdpChart.config.chart[this.chartType];
+    		this.draw(data,elem);
     	}
 
     }
 
     Chart.prototype = {
     	draw:function(data,elem){
-    		
+
+    		switch (this.chartType){
+    			case 'C210':
+		    		columnChart({
+		    			data:data,
+		    			elem:elem,
+		    			width:this.WIDTH,
+		    			height:this.HEIGHT
+		    		})
+    			break;
+    		}
     	}
     }
 

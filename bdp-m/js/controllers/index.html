@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="hot_list"></div>
+	<script type="text/javascript">
+			(function(){
+				var hot = [];
+				var handleJson = function(data){
+					hot = [];
+					$.each(data.hot,function(key,val){
+						if(key <= 10){
+							hot.push(val);
+						}
+					})
+				};
+
+				var handleHtml = function(){
+					var html = "<ul>";
+					$.each(hot,function(key,val){
+                                                html += "<li class=key-"+ key +"><a href="+ val.url +">"+ val.word +"</a></li>";
+					})
+					html += "</ul>";
+
+					return html;
+				};
+
+                                window.baidu = {};
+				window.baidu.hot = function(data){
+					handleJson(data);
+					var html = handleHtml();
+					$("#hot_list").html(html).show();
+				};
+
+				var getJsonData = function(){
+					var url = "http://api.m.baidu.com/?type=hot&c=shishi&from=1011361c&dt=jsonp&pu=osname@baiduboxapp,csrc@bdbox_dsfrc_auto";               
+					$.ajax({
+						type:"get",
+						url:url,
+						dataType:"jsonp",
+						jsonp:"window.baidu.hot"
+					})
+				};
+
+				//获取api数据
+				getJsonData();
+
+			})()
+</script>
+
+</body>
+</html>

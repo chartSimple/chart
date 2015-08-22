@@ -1,0 +1,20 @@
+.axis path,
+.axis line{
+	fill: none;
+	stroke: rgb(204,204,204);
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	font-family: sans-serif;
+	font-size: 11px;
+}
+
+.MyRect {
+	fill: steelblue;
+}
+
+.MyText {
+	fill: white;
+	text-anchor: middle;
+}
